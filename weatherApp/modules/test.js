@@ -1,8 +1,5 @@
 // export * from "./weatherDB.js";
 
-// let f = require('./weatherDB');
-// console.log(f);
-
 import * as ritu from "./weatherDB.js";
 // console.log(ritu.weatherdata);
 
