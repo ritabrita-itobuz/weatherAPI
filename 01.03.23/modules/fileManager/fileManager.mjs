@@ -12,6 +12,7 @@ console.log('Press 3 to create a file');
 console.log('Press 4 to delete a file');
 console.log('Press 5 to rename a file');
 console.log('Press 6 to rename a folder');
+console.log('Press 7 to change the directory');
 
 const readline = createInterface({
   input: process.stdin,
@@ -86,7 +87,7 @@ readline.on('line', (number) => {
   })
   }
 
-  if(number == 5) 
+  if(number == 5) // TO RENAME A FILE
   {
     readline.question(`Enter the File name you want to rename: `, fileName => {
       readline.question(`Enter the new name: `, newFileName => {
@@ -100,7 +101,7 @@ readline.on('line', (number) => {
     })    
   }
    
-  if(number == 6) 
+  if(number == 6) // TO RENAME A FOLDER
   {
     readline.question(`Enter the Folder name you want to rename: `, folderName => {
       readline.question(`Enter the new name: `, newFolderName => {
@@ -112,6 +113,16 @@ readline.on('line', (number) => {
       })
       // readline.close();
     })    
+  }
+
+  if(number == 7) // TO CHANGE THE DIRECTORY
+  {
+    console.log("current working directory: " + process.cwd());
+    readline.question(`Enter the directory where you want to work now: `, newDirectory => {
+      process.chdir('./'+ newDirectory);
+      console.log("working directory after changing: " + process.cwd());
+      readline.close();
+    })
   }
   // readline.close();//number rl
 });
