@@ -2,12 +2,16 @@
 import * as process from 'process';
 import { createInterface } from 'readline';
 import * as fs from 'fs';
+import * as path from 'path';
 // import * as promptSync from 'prompt-sync';
 console.log(process.argv);
 
-console.log('Press 1 for creating folder');
-console.log('Press 2 for deleting folder');
-console.log('Press 3 for changing folder path');
+console.log('Press 1 for creating a folder');
+console.log('Press 2 for deleting a folder');
+console.log('Press 3 to create a file');
+console.log('Press 4 to delete a file');
+console.log('Press 5 to rename a file');
+console.log('Press 6 to rename a folder');
 
 const readline = createInterface({
   input: process.stdin,
@@ -16,7 +20,7 @@ const readline = createInterface({
 readline.setPrompt(`Enter any number `);
 readline.prompt();
 readline.on('line', (number) => {
-  if(number == 1)
+  if(number == 1) // TO CREATE A FOLDER............
   {
     readline.question('Enter your folder name ', foldername => {
       try {
@@ -33,9 +37,8 @@ readline.on('line', (number) => {
     });
   }
     
-  if(number == 2)
+  if(number == 2) // TO DELETE A FOLDER...............
   {
-    // console.log(`Are youy sure to delete this folder`);
     readline.question(`Are you sure to delete any folder?(Type "yes" or "no") `, decision => {
       if(decision == 'yes')
       {
@@ -58,8 +61,58 @@ readline.on('line', (number) => {
     });
   }
 
+  if(number == 3) // TO CREATE A FILE...........
+  {
+    readline.question(`Enter a File name(with Extension): `,fileName => {
+      fs.writeFile(fileName, '', function (err) {
+        if (err) throw err;
+        console.log('File is created successfully.');
+      });
+      readline.close();
+  })
+  }
 
-    
+  if(number == 4) // TO DELETE A FILE...........
+  {
+    readline.question(`Enter a File name(with Extension): `,fileName => {
+      try {
+        fs.unlinkSync(fileName);
+      
+        console.log("Delete File successfully.");
+      } catch (error) {
+        console.log(error);
+      }
+      readline.close();
+  })
+  }
+
+  if(number == 5) 
+  {
+    readline.question(`Enter the File name you want to rename: `, fileName => {
+      readline.question(`Enter the new name: `, newFileName => {
+        fs.rename(fileName, newFileName, function (err) {
+          if (err) throw err;
+          console.log(`${fileName} is renamed to ${newFileName}`);
+        });
+        readline.close();
+      })
+      // readline.close();
+    })    
+  }
+   
+  if(number == 6) 
+  {
+    readline.question(`Enter the Folder name you want to rename: `, folderName => {
+      readline.question(`Enter the new name: `, newFolderName => {
+        fs.rename(folderName, newFolderName, function (err) {
+          if (err) throw err;
+          console.log(`${folderName} is renamed to ${newFolderName}`);
+        });
+        readline.close();
+      })
+      // readline.close();
+    })    
+  }
   // readline.close();//number rl
 });
 
