@@ -1,12 +1,3 @@
-// const readline = require('readline').createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-//   });
-  
-//   readline.question('Who are you?', name => {
-//     console.log(`Hey there ${name}!`);
-//     readline.close();
-//   });
 
 import * as process from 'process';
 import { createInterface } from 'readline';
@@ -15,7 +6,9 @@ import * as fs from 'fs';
 console.log(process.argv);
 
 console.log('Press 1 for creating folder');
-console.log('Press 2 for deleting folder')
+console.log('Press 2 for deleting folder');
+console.log('Press 3 for changing folder path');
+
 const readline = createInterface({
   input: process.stdin,
   output: process.stdout
@@ -25,7 +18,7 @@ readline.prompt();
 readline.on('line', (number) => {
   if(number == 1)
   {
-    readline.question('Enter your folder name', foldername => {
+    readline.question('Enter your folder name ', foldername => {
       try {
         if (!fs.existsSync(foldername)) {
           fs.mkdirSync(foldername);
@@ -43,17 +36,29 @@ readline.on('line', (number) => {
   if(number == 2)
   {
     // console.log(`Are youy sure to delete this folder`);
-    readline.question(`Are you sure to delete any folder `, decision => {
+    readline.question(`Are you sure to delete any folder?(Type "yes" or "no") `, decision => {
       if(decision == 'yes')
       {
-        console.log(`okay`);
+        readline.question(`Which folder you want to delete? `, folderToBeDeleted => {
+          const dir = folderToBeDeleted;
+          fs.rmdir(dir, err => {
+            if (err) {
+              throw err;
+            }
+          
+            console.log(`${dir} is deleted!`);
+          });
+          readline.close();
+        })
       }
-      else {
+      if(decision == 'no'){
         console.log(`okay, Fine`);
+        readline.close();// sure to delete
       }
-      readline.close();
     });
   }
+
+
     
   // readline.close();//number rl
 });
