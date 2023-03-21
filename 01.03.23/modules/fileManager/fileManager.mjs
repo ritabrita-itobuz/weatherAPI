@@ -1,5 +1,5 @@
 
-import * as process from 'process';
+// import * as process from 'process';
 import { createInterface } from 'readline';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -49,7 +49,7 @@ function operation() {
       });
     }
       
-    if(number == 2) // TO DELETE A FOLDER...............
+    else if(number == 2) // TO DELETE A FOLDER...............
     {
       readline.question(`Are you sure to delete any folder?(Type "yes" or "no") `, decision => {
         if(decision == 'yes')
@@ -76,7 +76,7 @@ function operation() {
       });
     }
   
-    if(number == 3) // TO CREATE A FILE...........
+    else if(number == 3) // TO CREATE A FILE...........
     {
       readline.question(`Enter a File name(with Extension): `,fileName => {
         fs.writeFile(fileName, '', function (err) {
@@ -90,7 +90,7 @@ function operation() {
     })
     }
   
-    if(number == 4) // TO DELETE A FILE...........
+    else if(number == 4) // TO DELETE A FILE...........
     {
       readline.question(`Enter a File name(with Extension): `,fileName => {
         try {
@@ -106,7 +106,7 @@ function operation() {
     })
     }
   
-    if(number == 5) // TO RENAME A FILE
+    else if(number == 5) // TO RENAME A FILE
     {
       readline.question(`Enter the File name you want to rename: `, fileName => {
         readline.question(`Enter the new name: `, newFileName => {
@@ -123,7 +123,7 @@ function operation() {
       })    
     }
      
-    if(number == 6) // TO RENAME A FOLDER
+    else if(number == 6) // TO RENAME A FOLDER
     {
       readline.question(`Enter the Folder name you want to rename: `, folderName => {
         readline.question(`Enter the new name: `, newFolderName => {
@@ -140,7 +140,7 @@ function operation() {
       })    
     }
   
-    if(number == 7) // TO CHANGE THE DIRECTORY
+    else if(number == 7) // TO CHANGE THE DIRECTORY
     {
       console.log("current working directory: " + process.cwd());
       readline.question(`Enter the directory where you want to work now: `, newDirectory => {
@@ -153,7 +153,7 @@ function operation() {
       })
     }
 
-    if(number == 8)
+    else if(number == 8) // TO EXIT
     {
       readline.question(`Are you sure to exit?(Type "yes" or "no") `, decision => {
         if(decision == 'yes')
@@ -168,8 +168,13 @@ function operation() {
       })
       // readline.close();
     }
+
+    else // A BUG SOLVED
+    {
+      readline.setPrompt(`OOPS! Enter any number from the given `);
+      readline.prompt();
+      operation();
+    }
     // readline.close();//number rl
   });
-}
-
-
+} 
