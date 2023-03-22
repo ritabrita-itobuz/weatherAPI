@@ -45,7 +45,6 @@ function operation() {
         } catch (err) {
           console.error(err);
         }
-        // readline.close();
       });
     }
       
