@@ -67,5 +67,3 @@ export let weatherdata = [
             },
         },
     ]
-    
-    // module.exports = {weatherdata};

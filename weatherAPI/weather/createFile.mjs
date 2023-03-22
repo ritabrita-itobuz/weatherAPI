@@ -1,11 +1,9 @@
 // var fs = require ('fs');
 import * as fs from 'fs';
 
-// import * as data from './weatherDB.js';
-
-// fs.writeFileSync('newfile.txt',JSON.stringify(data),(err)=>{
-//   if(err) throw err;
-// }) //first time writing to the file then commenting 
+fs.writeFileSync('newfile.txt',JSON.stringify(data),(err)=>{
+  if(err) throw err;
+}) //first time writing to the file then commenting 
 
 let object = "";
 try {
