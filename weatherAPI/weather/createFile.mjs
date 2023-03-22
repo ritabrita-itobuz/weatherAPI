@@ -7,7 +7,7 @@ import * as fs from 'fs';
 //   if(err) throw err;
 // }) //first time writing to the file then commenting 
 
-let object="";
+let object = "";
 try {
   var weatherdata = fs.readFileSync('newfile.txt');
   object = JSON.parse(weatherdata);
@@ -38,22 +38,22 @@ console.log('after modification');
 
 //-----------------(updating data)--------------
 function modifyData() {
-  const data = object.find(info => info.location=== 'Tokyo' )
+  const data = object.find(info => info.location === 'Tokyo' )
   data.tempC = "32.0";
 }
 modifyData();
 
 //-----------------(deleting data)-------------
 function deleteData() {
-  const data = object.find(info => info.location=== 'Tokyo' )
+  const data = object.find(info => info.location === 'Tokyo' )
   const position = object.indexOf(data);
-  object.splice(position,1);
+  object.splice(position, 1);
 }
 deleteData();
 
 console.log (object);
 //final update to the file
-  fs.writeFileSync('newfile.txt',JSON.stringify(object),function (err) {
+  fs.writeFileSync('newfile.txt', JSON.stringify(object), function (err) {
     if (err) throw err;
     console.log('File is updated successfully.');
   })

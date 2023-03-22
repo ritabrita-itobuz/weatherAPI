@@ -22,16 +22,16 @@ addData();
 // console.log(information.weatherdata);
 
 function modifyData() {
-    const data = information.weatherdata.find(info => info.location=== 'Tokyo' )
+    const data = information.weatherdata.find(info => info.location === 'Tokyo' )
     data.tempC = "33.5.0";
 }
 modifyData();
 console.log(information.weatherdata);
 
 function deleteData() {
-    const data = information.weatherdata.find(info => info.location=== 'Tokyo' )
+    const data = information.weatherdata.find(info => info.location === 'Tokyo' )
     const position = information.weatherdata.indexOf(data);
-    information.weatherdata.splice(position,1);
+    information.weatherdata.splice(position, 1);
 }
 deleteData();
 // console.log(information.weatherdata);
