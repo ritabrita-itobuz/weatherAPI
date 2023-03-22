@@ -52,7 +52,7 @@ function operation() {
     else if(number === "2") // TO DELETE A FOLDER...............
     {
       readline.question(`Are you sure to delete any folder?(Type "yes" or "no") `, decision => {
-        if(decision == 'yes')
+        if(decision === 'yes')
         {
           readline.question(`Which folder you want to delete? `, folderToBeDeleted => {
             const dir = folderToBeDeleted;
@@ -69,9 +69,12 @@ function operation() {
             // readline.close();
           })
         }
-        if(decision == 'no'){
+        if(decision === 'no'){
           console.log(`okay, Fine`);
-          readline.close();// sure to delete
+          readline.setPrompt(`Enter any number `);
+          readline.prompt();
+          operation();
+          // readline.close();// sure to delete
         }
       });
     }
@@ -156,11 +159,12 @@ function operation() {
     else if(number === "8") // TO EXIT
     {
       readline.question(`Are you sure to exit?(Type "yes" or "no") `, decision => {
-        if(decision == 'yes')
+        if(decision === 'yes')
           {
             readline.close();
           }
-        else {
+        if(decision === 'no') 
+        {
           readline.setPrompt(`Enter any number `);
           readline.prompt();
           operation();
