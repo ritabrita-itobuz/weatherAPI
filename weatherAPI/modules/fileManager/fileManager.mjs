@@ -66,7 +66,6 @@ function operation() {
               readline.prompt();
               operation();
             });
-            // readline.close();
           })
         }
         if(decision === 'no'){
@@ -74,7 +73,6 @@ function operation() {
           readline.setPrompt(`Enter any number `);
           readline.prompt();
           operation();
-          // readline.close();// sure to delete
         }
       });
     }
@@ -89,7 +87,6 @@ function operation() {
           readline.prompt();
           operation();
         });
-        // readline.close();
     })
     }
   
@@ -105,7 +102,6 @@ function operation() {
         } catch (error) {
           console.log(error);
         }
-        // readline.close();
     })
     }
   
@@ -120,9 +116,7 @@ function operation() {
             readline.prompt();
             operation();
           });
-          // readline.close();
         })
-        // readline.close();
       })    
     }
      
@@ -137,9 +131,7 @@ function operation() {
             readline.prompt();
             operation();
           });
-          // readline.close();
         })
-        // readline.close();
       })    
     }
   
@@ -152,7 +144,6 @@ function operation() {
         readline.setPrompt(`Enter any number `);
         readline.prompt();
         operation();
-        // readline.close();
       })
     }
 
@@ -170,7 +161,6 @@ function operation() {
           operation();
         }
       })
-      // readline.close();
     }
 
     else // A BUG SOLVED
@@ -179,6 +169,5 @@ function operation() {
       readline.prompt();
       operation();
     }
-    // readline.close();//number rl
   });
 } 
