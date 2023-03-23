@@ -1,6 +1,5 @@
 
 import * as information from "./weatherDB.js";
-// console.log(data.weatherdata);
 
 function addData() {
     information.weatherdata.push(
