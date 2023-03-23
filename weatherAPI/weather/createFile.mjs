@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-
 import * as data from './weatherDB.js';
 
 fs.writeFileSync('newfile.txt',JSON.stringify(data),(err)=>{
@@ -14,7 +13,7 @@ try {
 catch(err){
   console.log(err);
 }
-console.log (object); // for reading object
+// console.log (object); // for reading object
 console.log('after modification');
 
 //-----------------(adding data)----------------

@@ -1,10 +1,6 @@
-
-// import * as process from 'process';
 import { createInterface } from 'readline';
 import * as fs from 'fs';
 import * as path from 'path';
-// import * as promptSync from 'prompt-sync';
-// console.log(process.argv);
 
 console.log('Press 1 for creating a folder');
 console.log('Press 2 for deleting a folder');
@@ -146,7 +142,7 @@ function operation() {
       })
     }
 
-    else if(number === "8") // TO EXIT FROM 
+    else if(number === "8") // TO EXIT FROM READLINE
     {
       readline.question(`Are you sure to exit?(Type "yes" or "no") `, decision => {
         if(decision === 'yes')
