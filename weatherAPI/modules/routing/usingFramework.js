@@ -1,5 +1,7 @@
+const http = require('http');
+const port = 200; 
 
-export let weatherdata = [
+const data = [
     {
         location: 'Kolkata',
         tempC: '33',
@@ -15,7 +17,7 @@ export let weatherdata = [
         location: 'London',
         tempC: '4.0',
         tempF: '39.2',
-            condition: {
+        condition: {
             text:"Overcast",
             feelsLikeC: "1.2",
             feelsLikeF:"34.2",
@@ -67,3 +69,34 @@ export let weatherdata = [
         },
     },
 ]
+;
+
+function getRoutesBasedData(route, data) {
+    let status = 200;
+    console.log('route', route);
+    return JSON.stringify({
+        apiData: data
+    })
+}
+
+function getRequestData(req) {
+    if (req.url === '/') {
+       return getRoutesBasedData(req.url, data)
+    } else if(req.url === '/name') {
+        return  getRoutesBasedData(req.url, data)
+    } else {
+        return getRoutesBasedData('NOT FOUND', data)
+    }
+}
+
+const ourServer = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/txt'});
+    res.end(getRequestData(req));
+});
+
+ourServer.listen(port, () => {
+    console.log('port ... ', port);
+})
+
+
+

@@ -1,9 +1,11 @@
 // var fs = require ('fs');
 import * as fs from 'fs';
 
-fs.writeFileSync('newfile.txt',JSON.stringify(data),(err)=>{
-  if(err) throw err;
-}) //first time writing to the file then commenting 
+// import * as data from './weatherDB.js';
+
+// fs.writeFileSync('newfile.txt',JSON.stringify(data),(err)=>{
+//   if(err) throw err;
+// }) //first time writing to the file then commenting 
 
 let object = "";
 try {
@@ -17,22 +19,22 @@ catch(err){
 console.log('after modification');
 
 //-----------------(adding data)----------------
-function addData() {
-  object.push(
-      {
-          location: 'keshtopur',
-          tempC: '13',
-          tempF: '55.4',
-          condition: {
-              text:"Partly Cloudy",
-              feelsLikeC: "12",
-              feelsLikeF:"53.6",
-              humidity: "30"
-          },
-      },
-  )
-}
-addData();
+// function addData() {
+//   object.push(
+//       {
+//           location: 'keshtopur',
+//           tempC: '13',
+//           tempF: '55.4',
+//           condition: {
+//               text:"Partly Cloudy",
+//               feelsLikeC: "12",
+//               feelsLikeF:"53.6",
+//               humidity: "30"
+//           },
+//       },
+//   )
+// }
+// addData();
 
 //-----------------(updating data)--------------
 function modifyData() {
@@ -57,5 +59,5 @@ console.log (object);
   })
 
 //read file
-var database = fs.readFileSync('newfile.txt');
-console.log(database.toString());
+// var database = fs.readFileSync('newfile.txt');
+// console.log(database.toString());

@@ -1,4 +1,3 @@
-// export * from "./weatherDB.js";
 
 import * as information from "./weatherDB.js";
 // console.log(data.weatherdata);

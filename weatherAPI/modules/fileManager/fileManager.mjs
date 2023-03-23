@@ -146,7 +146,7 @@ function operation() {
       })
     }
 
-    else if(number === "8") // TO EXIT
+    else if(number === "8") // TO EXIT FROM 
     {
       readline.question(`Are you sure to exit?(Type "yes" or "no") `, decision => {
         if(decision === 'yes')
@@ -162,7 +162,7 @@ function operation() {
       })
     }
 
-    else // A BUG SOLVED
+    else 
     {
       readline.setPrompt(`OOPS! Enter any number from the given `);
       readline.prompt();
